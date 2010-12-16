@@ -1,0 +1,34 @@
+<html>
+   <head>
+      <title>{{ title }}</title>
+
+   </head>
+   <body>
+     <h1>Manage posts</h1>
+     <ul>
+
+     </ul>
+     <table border="0">
+         <tr>
+            <th>Title</th>
+            <th>Language</th>
+            <th>State</th>
+            <th>Tags</th>
+            <th>Created</th>
+         </tr>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post['title']['en'] }}</td>
+            <td>{{ post.get_lang() }}</td>
+            <td>&nbsp;</td>
+            <td>
+                {% for tag in post['tags'] %}
+                    {{ tag }},&nbsp;
+                {% end %}
+            </td>
+            <td>{{ post['date_creation'] }}</td>
+        </tr>
+        {% end %}
+     </table>
+   </body>
+ </html>
